@@ -1,8 +1,10 @@
 import React from 'react';
-import Accordion from './components/Accordion';
+//import Accordion from './components/Accordion';
+
+import Search from './components/Search';
 
 
-const items = [
+/*const items = [
   {
     title: 'What is React ?',
     content: 'React is FRONT end js framework'
@@ -15,12 +17,15 @@ const items = [
     title: 'Who do you useReact ?',
     content: 'React is my good'
   }
-];
+];*/
 
 
-export default  () =>{
+ const App = () =>{
   return <div>
-    <Accordion items={items}/>
+    <Search/>
+    
   </div>
 }
+
+export default App;
 
