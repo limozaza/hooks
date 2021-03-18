@@ -39,14 +39,21 @@ const options = [
  const App = () =>{
 
   const [selected,setSelected] = useState(options[0]);
+  const [shwoDropdown,setShwoDropdown] = useState(true);
 
   return (
     <div>
-      <Dropdown 
+      <button onClick={()=>setShwoDropdown(!shwoDropdown)}>Toggle Dropdown</button>
+      {
+        shwoDropdown ? 
+        <Dropdown 
         options={options} 
         selected={selected}
         onSelectedChange={setSelected}
-      />
+      /> 
+      : null
+      }
+      
     </div>
   );
 }

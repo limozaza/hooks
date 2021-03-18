@@ -7,12 +7,17 @@ const Dropdown = ({options,selected,onSelectedChange}) => {
     const ref = useRef();
 
     useEffect(()=>{
-        document.addEventListener('click',(event)=>{
+        const onBodyClick = (event)=>{
             if (ref.current && ref.current.contains(event.target)) {
                return; 
             }
             setOpen(false)
-        },{capture: true});
+        }
+        document.addEventListener('click',onBodyClick,{capture: true});
+
+        return ()=>{
+            document.body.removeEventListener('click',onBodyClick);
+        }
     },[]);
 
     const rendredOptions = options.map((option)=>{
