@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
 
 
 /*const items = [
@@ -39,21 +40,12 @@ const options = [
  const App = () =>{
 
   const [selected,setSelected] = useState(options[0]);
-  const [shwoDropdown,setShwoDropdown] = useState(true);
+
 
   return (
     <div>
-      <button onClick={()=>setShwoDropdown(!shwoDropdown)}>Toggle Dropdown</button>
-      {
-        shwoDropdown ? 
-        <Dropdown 
-        options={options} 
-        selected={selected}
-        onSelectedChange={setSelected}
-      /> 
-      : null
-      }
-      
+      <Translate/> 
+        
     </div>
   );
 }
