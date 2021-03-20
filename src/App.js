@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-//import Accordion from './components/Accordion';
 
+import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
 
+import Header from './components/Header';
+import Route from './components/Route';
 
-/*const items = [
+
+const items = [
   {
     title: 'What is React ?',
     content: 'React is FRONT end js framework'
@@ -19,7 +22,7 @@ import Translate from './components/Translate';
     title: 'Who do you useReact ?',
     content: 'React is my good'
   }
-];*/
+];
 
 const options = [
   {
@@ -41,11 +44,21 @@ const options = [
 
   const [selected,setSelected] = useState(options[0]);
 
-
   return (
     <div>
-      <Translate/> 
-        
+      <Header/>
+      <Route path="/">
+        <Accordion items={items}/>
+      </Route>
+      <Route path="/list">
+        <Search/>
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown options={options} label="Select Color" selected={selected} onSelectedChange={setSelected}/>
+      </Route>
+      <Route path="/translate">
+        <Translate/>
+      </Route>        
     </div>
   );
 }
